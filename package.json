@@ -1,0 +1,24 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "simple weather app to learn angular",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-route": "^1.4.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jon-r/weatherApp.git"
+  },
+  "author": "Jon Richards",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jon-r/weatherApp/issues"
+  },
+  "homepage": "https://github.com/jon-r/weatherApp#readme"
+}
