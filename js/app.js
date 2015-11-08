@@ -8,8 +8,14 @@ app.controller('Main', ['$scope', 'getCities', function($scope, getCities) {
 
 }])
 
-
-
+app.controller('Weather', ['$scope', '$routeParams', 'getWeather', function($scope, $routeParams, getWeather) {
+  getWeather($routeParams.id).then(function(data) {
+    console.log(data);
+    $scope.get = data.data;
+  }, function(err) {
+    console.log(err);
+  });
+}])
 
 app.factory('getCities', ['$http', function($http) {
   return $http.get('/data/cityList.json')
@@ -21,60 +27,31 @@ app.factory('getCities', ['$http', function($http) {
     })
 }])
 
-
-/*$searchIn.keyup(function () {
-  vp = updateViewportDimensions();
-  if ( vp.width >= 1030 ) {
-    var keyword = $(this).val();
-    if (keyword.length >= MIN_LENGTH) {
-      $.get(fileSrc.admin, {
-        keyword: keyword,
-        action: "jr_autocomplete"
-      }).done(searchToText);
-    } else {
-      $searchOut.html('');
-    }
+app.factory('getWeather', ['$http', function ($http) {
+  return function (countryID) {
+    return $http({
+      method: 'GET',
+      url: 'http://api.openweathermap.org/data/2.5/forecast',
+      params: {
+        id: countryID,
+        appid: '2de143494c0b295cca9337e1e96b00e0'
+      }
+    })
   }
-});
+ }])
 
-function searchToText(data) {
-  var results = $.parseJSON(data);
-  $searchOut.html('');
-  $(results).each(function (i) {
-    if (i < 4) {
-      var link = fileSrc.site + '/products/' + this.filter + '/' + this.url + '/';
-      var extra = (this.filter == 'brand') ? '<span> - Brand</span>' : '<span> - Category</span>';
-      var output = '<li><a href="' + link + '" >' + this.name + extra + '</a></li>';
-      $searchOut.append(output);
-    }
+
+app.config(function($routeProvider) {
+  $routeProvider
+  .when('/', {
+    controller: 'Main',
+    templateUrl: 'views/home.htm'
   })
-
-  angular.module('todoApp', [])
-  .controller('TodoListController', function() {
-    var todoList = this;
-    todoList.todos = [
-      {text:'learn angular', done:true},
-      {text:'build an angular app', done:false}];
-
-    todoList.addTodo = function() {
-      todoList.todos.push({text:todoList.todoText, done:false});
-      todoList.todoText = '';
-    };
-
-    todoList.remaining = function() {
-      var count = 0;
-      angular.forEach(todoList.todos, function(todo) {
-        count += todo.done ? 0 : 1;
-      });
-      return count;
-    };
-
-    todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
-      angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);
-      });
-    };
+  .when('/city/:id', {
+  	controller: 'Weather',
+    templateUrl: 'views/weather.htm'
+  })
+  .otherwise({
+    redirectTo:  '/'
   });
-};*/
+});

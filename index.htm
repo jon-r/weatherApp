@@ -12,7 +12,7 @@
 <!--      <p>{{valueOut}}</p>-->
       <ul>
         <li ng-repeat="city in cities | orderBy: 'name' | filter:valueIn | limitTo: 10" ng-click="">
-          <a href="#/city/{{city.name}}">{{city.name}}, {{city.countryCode}}</h2>
+          <a href="#/city/{{city.id}}">{{city.name}}, {{city.countryCode}}</a>
         </li>
       </ul>
     </header>
