@@ -10,8 +10,9 @@ app.controller('Main', ['$scope', 'getCities', function($scope, getCities) {
 
 app.controller('Weather', ['$scope', '$routeParams', 'getWeather', function($scope, $routeParams, getWeather) {
   getWeather($routeParams.id).then(function(data) {
-    console.log(data);
+    console.log(data.data);
     $scope.get = data.data;
+
   }, function(err) {
     console.log(err);
   });
@@ -34,12 +35,20 @@ app.factory('getWeather', ['$http', function ($http) {
       url: 'http://api.openweathermap.org/data/2.5/forecast',
       params: {
         id: countryID,
-        appid: '2de143494c0b295cca9337e1e96b00e0'
+        appid: '2de143494c0b295cca9337e1e96b00e0',
+        units: 'metric'
       }
     })
   }
  }])
 
+//because the timestamps are in seconds not miliseconds...
+app.filter('secToMs', function() {
+  return function(input) {
+    input = input || 0;
+    return (input * 1000);
+  }
+})
 
 app.config(function($routeProvider) {
   $routeProvider

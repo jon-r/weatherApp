@@ -2,4 +2,10 @@
 
 <h1>{{get.city.name}}</h1>
 
+  <ul>
+    <li ng-repeat="f in get.list">
+      {{f.dt | secToMs | date: 'EEEE ha'}} = <b>{{f.weather[0].main }}<b></b>
+    </li>
+  </ul>
+
 </article>
