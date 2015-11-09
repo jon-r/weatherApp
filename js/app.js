@@ -50,6 +50,36 @@ app.filter('secToMs', function() {
   }
 })
 
+app.filter('lat', function() {
+  return function(input) {
+    input = input || 0;
+    return ((input*-455)/5) + 5540;
+  }
+})
+
+app.filter('long', function() {
+  return function(input) {
+    input = input || 0;
+    return ((input*-255)/-5) + 721;
+  }
+})
+
+app.directive('ngX', function () {
+  return function (scope, element, attrs) {
+    scope.$watch(attrs.ngX, function (value) {
+      element.attr('cx', value);
+    });
+  };
+})
+
+app.directive('ngY', function () {
+  return function (scope, element, attrs) {
+    scope.$watch(attrs.ngY, function (value) {
+      element.attr('cy', value);
+    });
+  };
+})
+
 app.config(function($routeProvider) {
   $routeProvider
   .when('/', {
