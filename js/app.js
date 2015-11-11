@@ -6,12 +6,22 @@ app.controller('Main', ['$scope', 'getCities', function($scope, getCities) {
     $scope.cities = data;
   })
 
+  //show/hide the autocomplete
+  $scope.valueIn = '';
+  //$scope.cityListHide = true;
+
+  $scope.$watch("valueIn", function() {
+    $scope.cityListHide = ($scope.valueIn.length < 3);
+  })
+
 }])
 
-app.controller('Weather', ['$scope', '$routeParams', 'getWeather', function($scope, $routeParams, getWeather) {
-  getWeather($routeParams.id).then(function(data) {
-    console.log(data.data);
-    $scope.get = data.data;
+app.controller('Weather', ['$scope', '$routeParams', 'getWeather', 'dayBreakdown', function($scope, $routeParams, getWeather, dayBreakdown) {
+  getWeather($routeParams.id).then(function(result) {
+
+    $scope.get = result.data;
+    $scope.days = $scope.get.list;
+    $scope.title = dayBreakdown($scope.days);
 
   }, function(err) {
     console.log(err);
@@ -42,6 +52,8 @@ app.factory('getWeather', ['$http', function ($http) {
   }
  }])
 
+
+
 //because the timestamps are in seconds not miliseconds...
 app.filter('secToMs', function() {
   return function(input) {
@@ -50,6 +62,30 @@ app.filter('secToMs', function() {
   }
 })
 
+
+app.factory('dayBreakdown', ['$filter', function($filter) {
+  return function(dayArr) {
+    out = [];
+    today = new Date();
+    var title = $filter('date')(today,'EEE');
+    forecasts = dayArr.length;
+    for (i=0;i<forecasts;i++) {
+      timeStamp = dayArr[i].dt * 1000;
+      thisTitle = $filter('date')(timeStamp,'EEE');
+      if (title == thisTitle) {
+        out[i] = false;
+      } else {
+        out[i] = title = thisTitle;
+        //thisTitle = title;
+      }
+    }
+    out[0] = 'Today'; //overwriting the first blank string;
+    return out;
+  }
+}])
+
+/*
+NYI lat/long map. the curved lat/long coordinates dont match a flat map, so its close but messy.
 app.filter('lat', function() {
   return function(input) {
     input = input || 0;
@@ -78,7 +114,7 @@ app.directive('ngY', function () {
       element.attr('cy', value);
     });
   };
-})
+})*/
 
 app.config(function($routeProvider) {
   $routeProvider

@@ -1,11 +1,27 @@
 <article>
 
-<h1>{{get.city.name}}</h1>
+  <h1>{{get.city.name}}</h1>
+  <div class="forecast-frame">
+    <header ng-repeat-start="forecast in days" ng-if="title[$index]" class="day-title">
+      <h2>{{title[$index]}}</h2>
+    </header>
 
-  <ul>
-    <li ng-repeat="f in get.list">
-      {{f.dt | secToMs | date: 'EEEE ha'}} = <b>{{f.weather[0].main }}</b>
-    </li>
-  </ul>
+    <section ng-repeat-end class="forecast-tile">
 
+      <span class="tile-time">{{forecast.dt | secToMs | date:'ha'}}</span>
+      <span class="tile-temp">{{forecast.main.temp | number: 0}}&deg;C</span>
+      <div class="icon-box">
+        <img ng-src="/img/weather/{{forecast.weather[0].icon}}.svg" />
+<!--        <em>{{forecast.weather[0].description}}</em>-->
+      </div>
+      <div class="wind-box">
+        <img style="-webkit-transform:rotate({{forecast.wind.deg | number: 0}}deg)" src="/img/weather/arrow.svg" />
+        {{forecast.wind.speed | number: 1}}m/s
+      </div>
+    </section>
+<!--    <footer ng-repeat-end ng-if="title[$index]">---</footer>-->
+  </div>
+
+  <small >Climacons by <a href="https://twitter.com/#!/adamwhitcroft">@adamwhitcroft</a>.</small>
 </article>
+

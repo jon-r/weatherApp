@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display:flex;
+  margin: 0;
+
+}
+
+.sidebar,
+.forecast-frame {
+  padding: 2rem;
+}
+
+.sidebar {
+  background-color: #374f9f;
+  color: aliceblue;
+  height: 100vh;
+  width: 300px;
+
+}
+
+article {
+  flex:1;
+}
+
+.forecast-frame {
+  display: flex;
+  flex-wrap: wrap;
+  align-items:flex-end;
+}
+.day-title {
+  display:block;
+  width:100%;
+}
+
+.forecast-tile {
+  flex: 0 1 150px;
+  padding: 1rem;
+  margin: 0.5rem;
+  background:#ddd;
+}
+
+.wind-box {
+  height:100px;
+/*  padding:50px;*/
+}
+.wind-box img {
+  width:80px;
+  transform-origin: center;
+}
