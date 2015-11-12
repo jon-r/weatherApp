@@ -29,7 +29,7 @@ app.controller('Weather', ['$scope', '$routeParams', 'getWeather', 'dayBreakdown
 }])
 
 app.factory('getCities', ['$http', function($http) {
-  return $http.get('/data/cityList.json')
+  return $http.get('data/cityList.json')
     .success(function(data) {
       return data;
     })
