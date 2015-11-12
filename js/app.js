@@ -52,8 +52,6 @@ app.factory('getWeather', ['$http', function ($http) {
   }
  }])
 
-
-
 //because the timestamps are in seconds not miliseconds...
 app.filter('secToMs', function() {
   return function(input) {
@@ -62,12 +60,12 @@ app.filter('secToMs', function() {
   }
 })
 
-
 app.factory('dayBreakdown', ['$filter', function($filter) {
   return function(dayArr) {
     out = [];
     today = new Date();
-    var title = $filter('date')(today,'EEE');
+    title = $filter('date')(today,'EEE');
+    titleFix = title;
     forecasts = dayArr.length;
     for (i=0;i<forecasts;i++) {
       timeStamp = dayArr[i].dt * 1000;

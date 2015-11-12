@@ -1,52 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  display:flex;
-  margin: 0;
-
+  margin:0;
+  padding:0;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
 }
 
+h1,h2,h3 {
+  margin:0.5em 0;
+  font-weight: 700;
+}
+h1 {
+  font-size: 3.157em;
+  text-align: center;
+}
+h2 {
+  font-size: 1.777em
+}
+h3 {
+  font-size: 1.333em;
+}
+span {
+  font-size: 1em;
+}
+
+
 .sidebar,
-.forecast-frame {
+.frame {
   padding: 2rem;
 }
 
 .sidebar {
   background-color: #374f9f;
-  color: aliceblue;
+  color: #eee;
   height: 100vh;
   width: 300px;
-
+  position: fixed;
+  top:0;
+  padding-top: 30vh;
+  font-size: 1.2rem;
 }
 
-article {
-  flex:1;
+.sidebar input {
+  background: transparent;
+  border: none;
+  color: #eee;
+  border-bottom: solid 2px;
+  padding:3px;
+}
+.sidebar input:focus {
+  outline: none;
 }
 
-.forecast-frame {
+.sidebar li {
+  list-style: none;
+  padding: 5px;
+  margin:0;
+}
+.sidebar li:hover {
+  background-color: #5269b9;
+}
+
+.sidebar a {
+  text-decoration:none;
+  color:inherit;
+}
+
+main {
+  margin-left: 300px;
+  max-width: calc(100% - 300px);
+}
+
+.frame {
   display: flex;
   flex-wrap: wrap;
-  align-items:flex-end;
 }
+
 .day-title {
   display:block;
   width:100%;
 }
 
 .forecast-tile {
-  flex: 0 1 150px;
-  padding: 1rem;
+  flex: 1 0 100px;
+  max-width: 250px;
   margin: 0.5rem;
-  background:#ddd;
+  border-radius: 5px;
+  background-color: #ddd;
+  box-shadow: 0 3px 6px #888;
+}
+
+.hour-title {
+  text-align: center;
+}
+
+.icon-box {
+  width: 100%;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.icon-box .temp {
+  position: absolute;
+  bottom:0;
+  right:5px;
+}
+
+.forecast-tile img {
+  width: 100%;
 }
 
 .wind-box {
-  height:100px;
-/*  padding:50px;*/
+  background-color: #53c3e5;
+  width:calc(100% + 6px);
+  margin: 0 -3px 1rem -3px;
+  position: relative;
+  box-shadow: 0 2px 4px #888;
+  height:2rem;
 }
+
+
 .wind-box img {
-  width:80px;
+  width: 2rem;
+  position: absolute;
   transform-origin: center;
+}
+.wind-box span {
+  text-align: center;
+  display: block;
+  width: 100%;
+  line-height: 2rem;
 }
