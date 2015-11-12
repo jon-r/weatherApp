@@ -11,14 +11,14 @@
       <h3 class="hour-title">{{forecast.dt | secToMs | date:'ha'}}</h3>
 
       <div class="icon-box">
-        <img ng-src="/img/weather/{{forecast.weather[0].icon}}.svg" />
+        <img ng-src="img/weather/{{forecast.weather[0].icon}}.svg" />
         <span class="temp">{{forecast.main.temp | number: 0}}&deg;C</span>
       </div>
       <div class="wind-box">
         <img style="-webkit-transform:rotate({{forecast.wind.deg | number: 0}}deg);
                     -mox-transform:rotate({{forecast.wind.deg | number: 0}}deg);
                     transform:rotate({{forecast.wind.deg | number: 0}}deg);"
-             src="/img/weather/arrow.svg" />
+             src="img/weather/arrow.svg" />
         <span class="tile-wind">{{forecast.wind.speed | number: 1}}m/s</span>
       </div>
 
