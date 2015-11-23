@@ -10,14 +10,16 @@
     <meta name="author" content="Jon Richards" />
     <meta name="description" content="Weather App">
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js" ></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.js" ></script>
+   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js" ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.js" ></script>-->
+    <script type="text/javascript" src="/node_modules/angular/angular.js" ></script>
+    <script type="text/javascript" src="/node_modules/angular-route/angular-route.js" ></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
   </head>
 
   <body ng-app="jr_weather">
-    <nav class="sidebar" ng-controller="Main">
+    <nav class="sidebar" ng-controller="sidebar">
       <label>Town:</label>
       <input ng-model="valueIn" type="text" placeholder="enter town" />
 <!--      <p>{{valueOut}}</p>-->
@@ -30,7 +32,17 @@
 
     <main ng-view></main>
 
-    <script type="text/javascript" src="js/app.js" ></script>
+
+    <!--core-->
+    <script type="text/javascript" src="/app/app.module.js" ></script>
+    <script type="text/javascript" src="/app/app.routes.js" ></script>
+    <!--sidebar-->
+    <script type="text/javascript" src="/app/shared/sidebarCtrl.js" ></script>
+    <!--components-->
+    <script type="text/javascript" src="/app/components/home/homeCtrl.js" ></script>
+    <script type="text/javascript" src="/app/components/weather/weatherCtrl.js" ></script>
+    <script type="text/javascript" src="/app/components/weather/weatherService.js" ></script>
+
   </body>
 
 </html>
