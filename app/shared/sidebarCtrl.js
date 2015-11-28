@@ -14,7 +14,7 @@ app.controller('sidebar', ['$scope', 'getCities', function($scope, getCities) {
 }])
 
 .factory('getCities', ['$http', function($http) {
-  return $http.get('assets/data/cityList.json')
+  return $http.get('assets/data/cityListNew.json')
     .success(function(data) {
       return data;
     })
@@ -22,3 +22,8 @@ app.controller('sidebar', ['$scope', 'getCities', function($scope, getCities) {
       return err;
     })
 }])
+
+//regex filter
+/*
+JUST GOTTA SEPARATE THE () contents out of the name. put is as "a" or smt in the json. potentially unremove a load
+*/

@@ -1,13 +1,11 @@
-app.factory('getWeather', ['$http', 'dayStr', function ($http) {
+app.factory('getWeather', ['$http', function ($http) {
   return function (countryID) {
     return $http({
       method: 'GET',
-      url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
+      url: 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/'+countryID,
       params: {
-        id: countryID,
-        cnt: 7,
-        appid: '2de143494c0b295cca9337e1e96b00e0',
-        units: 'metric'
+        res: 'daily',
+        key: '1557995e-17dd-41ff-9ed9-2803b0328aa0',
       }
     })
   }
@@ -21,54 +19,67 @@ app.filter('secToMs', function() {
   }
 });
 
+//because metoffice timestamps are baddys
+app.filter('isoFix', function() {
+  return function(input) {
+    input = input || 0;
+    return input.replace("Z","");
+  }
+});
+
 //day string
 app.factory('dayStr', ['$filter', function($filter) {
-
-  Number.prototype.between = function(a,b) {
-    return this > a && this < b;
+/*
+  Number.prototype.between = function(from,to) {
+    return this >= from && this < to;
   }
 
   var setStrings = function(dayArr) {
     //var dayX = dayArr.length;
     return {
       windVal: function() {
-        var beaufort = [
-           0,    //none
-           0.3, //calm
-           1.5, //air
-           3.3, //light
-           5.5, //gentle
-           8.0, //moderate
-          10.8, //fresh
-          13.9, //strong
-          17.2, //high
-          20.7, //gale
-          24.5, //severe
-          28.4, //storm
-          32.6  //violent
-        ];
 
-        var winds = beaufort.length;
         var wind = dayArr.speed;
 
-        for (i=0;i<winds;i++) {
-          j = i - 1;
-          if (wind.between(beaufort[j], beaufort[i])) {
-            return i;
-            break;
-          }
+        if (wind.between(3, 8)) {
+          return 1;//'There is a light breeze';
+        } else if (wind.between(8,18)) {
+          return 2; //'There is a strong wind';
+        } else if (wind > 18) {
+          return 3; //'There is a gale'
+        } else {
+          return 0;
         }
-
       },
       overview: function() {
         return dayArr.weather[0].description;
       },
+      tempDayVal: function() {
+        var temp = dayArr.temp.day;
+        if (temp <= -10) {
+          return -1
+        } else if (temp.between(-10,30)) {
+          return math.round(temp/10);
+        } else if (temp > 30) {
+          return 3
+        }
+      },
+      tempNightVal: function() {
+        var temp = dayArr.temp.night;
+        if (temp <= -10) {
+          return -1
+        } else if (temp.between(-10,30)) {
+          return math.round(temp/10);
+        } else if (temp > 30) {
+          return 3
+        }
+      },
+      rain: function() {
+        var rain = (dayArr.rain)/3;
+        if
+      }
     }
   }
-
-
-
-
 
   return function(days) {
     count = days.length;
@@ -78,8 +89,9 @@ app.factory('dayStr', ['$filter', function($filter) {
       day = setStrings(days[x]);
       dt = (days[x].dt * 1000);
       var today = $filter('date')(dt,'EEEE');
-      out[x] = today + '\'s weather will be ' + day.overview() + '. The wind level is ' + day.windVal();
+      out[x] = today + '\'s weather will be ' + day.overview() + '. ' + day.windVal();
     }
     console.log(out);
-  }
+  }*/
+
 }]);

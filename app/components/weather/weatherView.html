@@ -1,24 +1,24 @@
 <article>
 
-  <h1>{{get.city.name}}</h1>
+  <h1>{{get.Location.name}}</h1>
   <div class="frame">
 
     <section ng-repeat="forecast in days" class="forecast-tile">
 
-      <h3 class="hour-title">{{forecast.dt | secToMs | date:'dd MMM yyyy - ha'}}</h3>
+      <h3 class="hour-title">{{forecast.value | isoFix | date: "EEE dd MMM"}}</h3>
 
       <div class="icon-box">
         <img ng-src="/assets/img/weather/{{forecast.weather[0].icon}}.svg" />
         <span class="temp">
-          Min: {{forecast.temp.min | number: 0}}&deg;C
-          Max: {{forecast.temp.max | number: 0}}&deg;C</span>
+          Min: {{forecast.Rep[1].FNm | number: 0}}&deg;C
+          Max: {{forecast.Rep[0].FDm | number: 0}}&deg;C</span>
       </div>
       <div class="wind-box">
         <img style="-webkit-transform:rotate({{forecast.deg | number: 0}}deg);
                     -mox-transform:rotate({{forecast.deg | number: 0}}deg);
                     transform:rotate({{forecast.deg | number: 0}}deg);"
              src="/assets/img/weather/arrow.svg" />
-        <span class="tile-wind">{{forecast.speed | number: 1}}m/s</span>
+        <span class="tile-wind">{{forecast.Rep[0].S | number: 0}}mph</span>
       </div>
 
 

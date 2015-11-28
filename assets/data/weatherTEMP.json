@@ -1,167 +1,216 @@
 {
-  "city": {
-    "id": 524901,
-    "name": "Moscow",
-    "coord": {
-      "lon": 37.615555,
-      "lat": 55.75222
+  "SiteRep": {
+    "Wx": {
+      "Param": [{
+        "name": "FDm",
+        "units": "C",
+        "$": "Feels Like Day Maximum Temperature"
+      }, {
+        "name": "FNm",
+        "units": "C",
+        "$": "Feels Like Night Minimum Temperature"
+      }, {
+        "name": "Dm",
+        "units": "C",
+        "$": "Day Maximum Temperature"
+      }, {
+        "name": "Nm",
+        "units": "C",
+        "$": "Night Minimum Temperature"
+      }, {
+        "name": "Gn",
+        "units": "mph",
+        "$": "Wind Gust Noon"
+      }, {
+        "name": "Gm",
+        "units": "mph",
+        "$": "Wind Gust Midnight"
+      }, {
+        "name": "Hn",
+        "units": "%",
+        "$": "Screen Relative Humidity Noon"
+      }, {
+        "name": "Hm",
+        "units": "%",
+        "$": "Screen Relative Humidity Midnight"
+      }, {
+        "name": "V",
+        "units": "",
+        "$": "Visibility"
+      }, {
+        "name": "D",
+        "units": "compass",
+        "$": "Wind Direction"
+      }, {
+        "name": "S",
+        "units": "mph",
+        "$": "Wind Speed"
+      }, {
+        "name": "U",
+        "units": "",
+        "$": "Max UV Index"
+      }, {
+        "name": "W",
+        "units": "",
+        "$": "Weather Type"
+      }, {
+        "name": "PPd",
+        "units": "%",
+        "$": "Precipitation Probability Day"
+      }, {
+        "name": "PPn",
+        "units": "%",
+        "$": "Precipitation Probability Night"
+      }]
     },
-    "country": "RU",
-    "population": 0
-  },
-  "cod": "200",
-  "message": 0.0399,
-  "cnt": 7,
-  "list": [{
-    "dt": 1448269200,
-    "temp": {
-      "day": 270.08,
-      "min": 269.4,
-      "max": 270.34,
-      "night": 269.4,
-      "eve": 270.08,
-      "morn": 270.08
-    },
-    "pressure": 1005.72,
-    "humidity": 88,
-    "weather": [{
-      "id": 600,
-      "main": "Snow",
-      "description": "light snow",
-      "icon": "13d"
-    }],
-    "speed": 2.71,
-    "deg": 275,
-    "clouds": 80,
-    "snow": 0.15
-  }, {
-    "dt": 1448355600,
-    "temp": {
-      "day": 271.34,
-      "min": 266.71,
-      "max": 272.94,
-      "night": 267.52,
-      "eve": 270.59,
-      "morn": 266.71
-    },
-    "pressure": 1009.08,
-    "humidity": 95,
-    "weather": [{
-      "id": 600,
-      "main": "Snow",
-      "description": "light snow",
-      "icon": "13d"
-    }],
-    "speed": 4.01,
-    "deg": 213,
-    "clouds": 80,
-    "snow": 0.98
-  }, {
-    "dt": 1448442000,
-    "temp": {
-      "day": 270.47,
-      "min": 266.64,
-      "max": 270.47,
-      "night": 267.2,
-      "eve": 266.64,
-      "morn": 267.67
-    },
-    "pressure": 1006.8,
-    "humidity": 90,
-    "weather": [{
-      "id": 600,
-      "main": "Snow",
-      "description": "light snow",
-      "icon": "13d"
-    }],
-    "speed": 1.92,
-    "deg": 356,
-    "clouds": 76,
-    "snow": 0.34
-  }, {
-    "dt": 1448528400,
-    "temp": {
-      "day": 267.81,
-      "min": 259.94,
-      "max": 268.31,
-      "night": 259.94,
-      "eve": 264.55,
-      "morn": 266.6
-    },
-    "pressure": 1008.18,
-    "humidity": 86,
-    "weather": [{
-      "id": 600,
-      "main": "Snow",
-      "description": "light snow",
-      "icon": "13d"
-    }],
-    "speed": 2.52,
-    "deg": 266,
-    "clouds": 24,
-    "snow": 0.16
-  }, {
-    "dt": 1448614800,
-    "temp": {
-      "day": 266.77,
-      "min": 262,
-      "max": 266.94,
-      "night": 262.32,
-      "eve": 263.58,
-      "morn": 262
-    },
-    "pressure": 1008.38,
-    "humidity": 89,
-    "weather": [{
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04d"
-    }],
-    "speed": 4.37,
-    "deg": 231,
-    "clouds": 68
-  },{
-    "dt": 1448701200,
-    "temp": {
-      "day": 265.42,
-      "min": 255.38,
-      "max": 265.42,
-      "night": 258.61,
-      "eve": 257.45,
-      "morn": 255.38
-    },
-    "pressure": 1020.83,
-    "humidity": 0,
-    "weather": [{
-      "id": 800,
-      "main": "Clear",
-      "description": "sky is clear",
-      "icon": "01d"
-    }],
-    "speed": 1.19,
-    "deg": 86,
-    "clouds": 2
-  }, {
-    "dt": 1448787600,
-    "temp": {
-      "day": 263.37,
-      "min": 259.36,
-      "max": 263.37,
-      "night": 259.58,
-      "eve": 261.69,
-      "morn": 259.36
-    },
-    "pressure": 1019.73,
-    "humidity": 0,
-    "weather": [{
-      "id": 800,
-      "main": "Clear",
-      "description": "sky is clear",
-      "icon": "01d"
-    }],
-    "speed": 4.81,
-    "deg": 139,
-    "clouds": 45
-  }]
+    "DV": {
+      "dataDate": "2015-11-28T17:00:00Z",
+      "type": "Forecast",
+      "Location": {
+        "i": "310158",
+        "lat": "53.3893",
+        "lon": "-2.5971",
+        "name": "WARRINGTON",
+        "country": "ENGLAND",
+        "continent": "EUROPE",
+        "elevation": "11.0",
+        "Period": [{
+          "type": "Day",
+          "value": "2015-11-28Z",
+          "Rep": [{
+            "D": "SSW",
+            "Gn": "29",
+            "Hn": "83",
+            "PPd": "90",
+            "S": "13",
+            "V": "MO",
+            "Dm": "9",
+            "FDm": "5",
+            "W": "15",
+            "U": "1",
+            "$": "Day"
+          }, {
+            "D": "WSW",
+            "Gm": "34",
+            "Hm": "77",
+            "PPn": "89",
+            "S": "18",
+            "V": "VG",
+            "Nm": "7",
+            "FNm": "4",
+            "W": "12",
+            "$": "Night"
+          }]
+        }, {
+          "type": "Day",
+          "value": "2015-11-29Z",
+          "Rep": [{
+            "D": "WSW",
+            "Gn": "47",
+            "Hn": "71",
+            "PPd": "88",
+            "S": "25",
+            "V": "VG",
+            "Dm": "11",
+            "FDm": "7",
+            "W": "15",
+            "U": "1",
+            "$": "Day"
+          }, {
+            "D": "W",
+            "Gm": "31",
+            "Hm": "62",
+            "PPn": "91",
+            "S": "16",
+            "V": "VG",
+            "Nm": "5",
+            "FNm": "1",
+            "W": "7",
+            "$": "Night"
+          }]
+        }, {
+          "type": "Day",
+          "value": "2015-11-30Z",
+          "Rep": [{
+            "D": "S",
+            "Gn": "27",
+            "Hn": "90",
+            "PPd": "94",
+            "S": "16",
+            "V": "MO",
+            "Dm": "10",
+            "FDm": "6",
+            "W": "15",
+            "U": "1",
+            "$": "Day"
+          }, {
+            "D": "S",
+            "Gm": "9",
+            "Hm": "93",
+            "PPn": "91",
+            "S": "4",
+            "V": "MO",
+            "Nm": "6",
+            "FNm": "5",
+            "W": "15",
+            "$": "Night"
+          }]
+        }, {
+          "type": "Day",
+          "value": "2015-12-01Z",
+          "Rep": [{
+            "D": "SW",
+            "Gn": "31",
+            "Hn": "86",
+            "PPd": "91",
+            "S": "18",
+            "V": "GO",
+            "Dm": "13",
+            "FDm": "9",
+            "W": "12",
+            "U": "1",
+            "$": "Day"
+          }, {
+            "D": "SW",
+            "Gm": "31",
+            "Hm": "83",
+            "PPn": "21",
+            "S": "18",
+            "V": "GO",
+            "Nm": "11",
+            "FNm": "8",
+            "W": "7",
+            "$": "Night"
+          }]
+        }, {
+          "type": "Day",
+          "value": "2015-12-02Z",
+          "Rep": [{
+            "D": "SW",
+            "Gn": "36",
+            "Hn": "78",
+            "PPd": "39",
+            "S": "20",
+            "V": "GO",
+            "Dm": "13",
+            "FDm": "9",
+            "W": "12",
+            "U": "1",
+            "$": "Day"
+          }, {
+            "D": "WSW",
+            "Gm": "22",
+            "Hm": "77",
+            "PPn": "41",
+            "S": "11",
+            "V": "VG",
+            "Nm": "6",
+            "FNm": "4",
+            "W": "7",
+            "$": "Night"
+          }]
+        }]
+      }
+    }
+  }
 }
