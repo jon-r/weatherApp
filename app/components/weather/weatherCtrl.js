@@ -1,12 +1,12 @@
 /* weather ----------------------------------------------------------------------------*/
-app.controller('weather', ['$scope', '$routeParams', 'getWeather',
-  function($scope, $routeParams, getWeather) {
+app.controller('weather', ['$scope', '$routeParams', 'getWeather', 'dayStr',
+  function($scope, $routeParams, getWeather,dayStr) {
 
     getWeather($routeParams.id).then(function(result) {
 
       $scope.get = result.data.SiteRep.DV;
       $scope.days = $scope.get.Location.Period;
-      //$scope.dayStr = dayStr($scope.days);
+      $scope.dayStr = dayStr($scope.days);
 
       console.log ($scope.days);
     }, function(err) {
