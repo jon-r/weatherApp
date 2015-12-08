@@ -29,6 +29,21 @@ app.filter('isoFix', function() {
 
 //day string
 app.factory('dayStr', ['$filter', function($filter) {
+
+  /* IMPORTANT NUMBERS
+
+    temp (Dm, Nm)
+    feels like temp (FDm, FNm)
+    wind speed (S)
+    visibility (if fog/mist) (V)
+    weather (W)
+
+
+  */
+
+  Number.prototype.between = function(from,to) {
+    return this >= from && this < to;
+  }
 /*
   Number.prototype.between = function(from,to) {
     return this >= from && this < to;
