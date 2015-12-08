@@ -6,7 +6,7 @@ app.controller('weather', ['$scope', '$routeParams', 'getWeather', 'dayStr',
 
       $scope.get = result.data.SiteRep.DV;
       $scope.days = $scope.get.Location.Period;
-      $scope.dayStr = dayStr($scope.days);
+      $scope.dayStr = dayStr($scope.days.Rep);
 
       console.log ($scope.days);
     }, function(err) {
